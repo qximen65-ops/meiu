@@ -511,7 +511,93 @@
       .line-btn {
         width: 100%;
       }
-    }
+    }.form-section {
+  padding: 78px 0;
+  background: #f4f7fb;
+}
+
+.form-box {
+  background: #ffffff;
+  border-radius: 28px;
+  padding: 34px 26px;
+  box-shadow: 0 18px 50px rgba(7, 17, 31, 0.12);
+}
+
+.form-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 26px;
+}
+
+.form-title::before {
+  content: "";
+  width: 6px;
+  height: 54px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #d4af37, #fff0a8);
+}
+
+.form-title h2 {
+  color: #07111f;
+  font-size: 34px;
+  font-weight: 950;
+}
+
+.contact-form {
+  display: grid;
+  gap: 16px;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  padding: 15px 16px;
+  border-radius: 10px;
+  border: 1px solid #c6d2e2;
+  font-size: 16px;
+  font-family: inherit;
+  outline: none;
+  color: #07111f;
+  background: #ffffff;
+}
+
+.contact-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  border-color: #d4af37;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.18);
+}
+
+.submit-btn {
+  border: none;
+  cursor: pointer;
+  padding: 16px 28px;
+  border-radius: 12px;
+  background: #07111f;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 950;
+  transition: 0.25s;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  background: #10243d;
+}
+
+.form-note {
+  margin-top: 14px;
+  color: #66758a;
+  font-size: 14px;
+  line-height: 1.7;
+}
   </style>
 </head>
 
@@ -529,8 +615,7 @@
 
       <nav class="menu">
         <a href="#service">服務內容</a>
-        <a href="#process">了解流程</a>
-        <a href="#notice">注意事項</a>
+        <a href="#lead-form">填寫資料</a>
         <a href="#contact">聯絡我們</a>
       </nav>
     </div>
@@ -659,7 +744,40 @@
         </div>
       </div>
     </section>
+<section id="lead-form" class="form-section">
+  <div class="container">
+    <div class="form-box">
+      <div class="form-title">
+        <h2>留下資訊</h2>
+      </div>
 
+      <form class="contact-form" id="leadForm">
+        <input type="text" id="name" placeholder="姓名" required>
+
+        <input type="tel" id="phone" placeholder="手機" required>
+
+        <input type="text" id="lineid" placeholder="LINE ID（選填）">
+
+        <select id="loanType" required>
+          <option value="個人信貸">個人信貸</option>
+          <option value="小額資金需求">小額資金需求</option>
+          <option value="房屋貸款">房屋貸款</option>
+          <option value="汽機車貸款">汽機車貸款</option>
+          <option value="企業資金周轉">企業資金周轉</option>
+          <option value="其他資金規劃">其他資金規劃</option>
+        </select>
+
+        <textarea id="message" placeholder="想了解的內容"></textarea>
+
+        <button type="submit" class="submit-btn">送出資料</button>
+      </form>
+
+      <div class="form-note">
+        送出後將會開啟 LINE，請確認資料內容後再傳送。本表單僅作為一般資訊說明與聯繫用途，實際條件仍依相關單位審核為準。
+      </div>
+    </div>
+  </div>
+</section>
     <section id="contact">
       <div class="container">
         <div class="contact-box">
@@ -683,6 +801,26 @@
       <p>© 2026 宏誠融資｜本網站僅提供一般資訊整理與方向說明</p>
     </div>
   </footer>
+<script>
+  document.getElementById("leadForm").addEventListener("submit", function(e) {
+    e.preventDefault();
 
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const lineid = document.getElementById("lineid").value.trim();
+    const loanType = document.getElementById("loanType").value;
+    const message = document.getElementById("message").value.trim();
+
+    const text =
+      "您好，我想了解資金規劃資訊%0A%0A" +
+      "姓名：" + encodeURIComponent(name) + "%0A" +
+      "手機：" + encodeURIComponent(phone) + "%0A" +
+      "LINE ID：" + encodeURIComponent(lineid || "未填寫") + "%0A" +
+      "想了解項目：" + encodeURIComponent(loanType) + "%0A" +
+      "補充內容：" + encodeURIComponent(message || "未填寫");
+
+    window.open("https://line.me/R/ti/p/g9m_2vL-Vu?text=" + text, "_blank");
+  });
+</script>
 </body>
 </html>
