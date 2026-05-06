@@ -829,25 +829,16 @@
     </div>
   </footer>
 <script>
-  document.getElementById("leadForm").addEventListener("submit", function(e) {
-    e.preventDefault();
+  const leadForm = document.getElementById("leadForm");
 
-    const name = document.getElementById("name").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const lineid = document.getElementById("lineid").value.trim();
-    const loanType = document.getElementById("loanType").value;
-    const message = document.getElementById("message").value.trim();
-
-    const text =
-      "您好，我想了解資金規劃資訊%0A%0A" +
-      "姓名：" + encodeURIComponent(name) + "%0A" +
-      "手機：" + encodeURIComponent(phone) + "%0A" +
-      "LINE ID：" + encodeURIComponent(lineid || "未填寫") + "%0A" +
-      "想了解項目：" + encodeURIComponent(loanType) + "%0A" +
-      "補充內容：" + encodeURIComponent(message || "未填寫");
-
-    window.open("https://line.ee/VFhZApjE", "_blank");
-  });
+  if (leadForm) {
+    leadForm.addEventListener("submit", function(e) {
+      e.preventDefault();
+      window.location.href = "https://line.ee/VFhZApjE";
+    });
+  }
 </script>
+
+
 </body>
 </html>
