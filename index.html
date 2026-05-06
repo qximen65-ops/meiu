@@ -598,6 +598,54 @@
   font-size: 14px;
   line-height: 1.7;
 }
+ .info-box-section {
+  padding: 0 0 58px;
+  background: #f4f7fb;
+}
+
+.info-box {
+  background: #fff8df;
+  border: 1px solid rgba(212, 175, 55, 0.65);
+  border-radius: 18px;
+  padding: 34px 28px;
+  color: #07111f;
+  box-shadow: 0 14px 36px rgba(7, 17, 31, 0.08);
+}
+
+.info-box h2 {
+  position: relative;
+  font-size: 30px;
+  font-weight: 950;
+  margin-bottom: 22px;
+  padding-left: 16px;
+}
+
+.info-box h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 5px;
+  height: 54px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #d4af37, #fff0a8);
+}
+
+.info-box p {
+  font-size: 17px;
+  color: #233247;
+  line-height: 1.9;
+  margin-bottom: 14px;
+}
+
+.info-box p:last-child {
+  margin-bottom: 0;
+}
+
+.info-box strong {
+  color: #9f6b00;
+  font-weight: 950;
+}   
   </style>
 </head>
 
@@ -708,42 +756,21 @@
       </div>
     </section>
 
-    <section id="process" class="process">
-      <div class="container">
-        <div class="section-title">
-          <div class="small">PROCESS</div>
-          <h2>簡單三步驟</h2>
-          <p>先把方向弄清楚。</p>
-        </div>
-
-        <div class="steps">
-          <div class="step">
-            <div class="step-num">1</div>
-            <h3>加入 LINE</h3>
-            <p>透過 LINE 聯繫，留下想了解的資金規劃方向與基本需求。</p>
-          </div>
-
-          <div class="step">
-            <div class="step-num">2</div>
-            <h3>基礎資訊整理</h3>
-            <p>由專人協助整理一般資訊、流程說明與需要注意的重點。</p>
-          </div>
-
-          <div class="step">
-            <div class="step-num">3</div>
-            <h3>了解可能方向</h3>
-            <p>依照您的狀況提供方向參考，協助您判斷後續是否進一步了解。</p>
-          </div>
-        </div>
-
-        <div id="notice" class="notice">
-          <strong>重要提醒：</strong>
-          本頁提供一般資金規劃與信貸資訊整理，不代表保證核准、不保證額度或條件。
-          實際結果仍須依金融機構、合作單位或相關審核標準為準。請勿提供不實資料，
-          也請勿支付任何不明費用或押金。
-        </div>
-      </div>
-    </section>
+    <section class="info-box-section">
+  <div class="container">
+    <div class="info-box">
+      <h2>專人協助說明</h2>
+      <p>
+        宏誠融資提供一般資金規劃資訊，由專人協助了解不同貸款項目與申請流程，
+        協助整理基本資料與方向說明，讓整體流程更加清楚。
+      </p>
+      <p>
+        <strong>警示戶可協助了解情況與可行處理方向。</strong>
+        若您有特殊信用或帳戶狀況，也可先了解目前情況與可能方向。
+      </p>
+    </div>
+  </div>
+</section>
 <section id="lead-form" class="form-section">
   <div class="container">
     <div class="form-box">
