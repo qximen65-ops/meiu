@@ -1056,18 +1056,23 @@
       formData.append("來源頁面", window.location.href);
 
       try {
-        await fetch(GOOGLE_SCRIPT_URL, {
-          method: "POST",
-          mode: "no-cors",
-          body: formData
-        });
+  await fetch(GOOGLE_SCRIPT_URL, {
+    method: "POST",
+    mode: "no-cors",
+    body: formData
+  });
 
-        alert("資料已送出，請接著加入 LINE 聯繫專人。");
-        window.location.href = LINE_ADD_URL;
+  // Meta Pixel：表單送出成功後記錄 Lead
+  if (typeof fbq === "function") {
+    fbq("track", "Lead");
+  }
 
-      } catch (error) {
-        alert("資料送出失敗，請稍後再試，或直接加入 LINE 聯繫。");
-      }
+  alert("資料已送出，請接著加入 LINE 聯繫專人。");
+  window.location.href = LINE_ADD_URL;
+
+} catch (error) {
+  alert("資料送出失敗，請稍後再試，或直接加入 LINE 聯繫。");
+}
     });
   }
 </script>
