@@ -780,25 +780,28 @@
       </div>
 
       <form class="contact-form" id="leadForm">
-        <input type="text" id="name" placeholder="姓名" required>
+       <form class="contact-form" id="leadForm">
 
-        <input type="tel" id="phone" placeholder="手機" required>
+  <input type="text" id="name" name="姓名" placeholder="姓名" required>
 
-        <input type="text" id="lineid" placeholder="LINE ID（選填）">
+  <input type="tel" id="phone" name="手機號碼" placeholder="手機" required>
 
-        <select id="loanType" required>
-          <option value="個人信貸">個人信貸</option>
-          <option value="小額資金需求">小額資金需求</option>
-          <option value="房屋貸款">房屋貸款</option>
-          <option value="汽機車貸款">汽機車貸款</option>
-          <option value="企業資金周轉">企業資金周轉</option>
-          <option value="其他資金規劃">其他資金規劃</option>
-        </select>
+  <input type="text" id="lineid" name="LINE ID" placeholder="LINE ID（選填）">
 
-        <textarea id="message" placeholder="想了解的內容"></textarea>
+  <select id="loanType" name="需求類型" required>
+    <option value="個人信貸">個人信貸</option>
+    <option value="小額資金需求">小額資金需求</option>
+    <option value="房屋貸款">房屋貸款</option>
+    <option value="汽機車貸款">汽機車貸款</option>
+    <option value="企業資金周轉">企業資金周轉</option>
+    <option value="其他資金規劃">其他資金規劃</option>
+  </select>
 
-        <button type="submit" class="submit-btn">送出資料</button>
-      </form>
+  <textarea id="message" name="補充說明" placeholder="想了解的內容"></textarea>
+
+  <button type="submit" class="submit-btn">送出資料</button>
+
+</form>
 
       <div class="form-note">
         送出後將會開啟 LINE，請確認資料內容後再傳送。本表單僅作為一般資訊說明與聯繫用途，實際條件仍依相關單位審核為準。
@@ -815,7 +818,7 @@
             再評估是否適合進一步規劃。
           </p>
 
-       <a class="line-btn" href="https://lin.ee/VFhZApjE" target="_blank" rel="noopener">
+       <a class="line-btn"https://lin.ee/VFhZApjE" target="_blank" rel="noopener">
             加入 LINE 了解
           </a>
         </div>
@@ -829,17 +832,38 @@
       <p>© 2026 宏誠融資｜本網站僅提供一般資訊整理與方向說明</p>
     </div>
   </footer>
-<script>
-  const leadForm = document.getElementById("leadForm");
 
-  if (leadForm) {
-    leadForm.addEventListener("submit", function(e) {
+
+<script>
+  const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyk5mniYbwep7HdsDi-NSWuvbJmAM3omdbp2rbD6qkuEQZIG46BaU6PGMGTsmcplUCv0g/exec";
+  const LINE_ADD_URL = "https://lin.ee/VFhZApjE";
+
+  const form = document.querySelector("form");
+
+  if (form) {
+    form.addEventListener("submit", async function (e) {
       e.preventDefault();
-     window.location.href = "https://lin.ee/VFhZApjE";
+
+      const formData = new FormData(form);
+      formData.append("送出時間", new Date().toLocaleString("zh-TW", { timeZone: "Asia/Taipei" }));
+      formData.append("來源頁面", window.location.href);
+
+      try {
+        await fetch(GOOGLE_SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          body: formData
+        });
+
+        alert("資料已送出，請接著加入 LINE 聯繫專人。");
+        window.location.href = LINE_ADD_URL;
+
+      } catch (error) {
+        alert("資料送出失敗，請稍後再試，或直接加入 LINE 聯繫。");
+      }
     });
   }
 </script>
-
-
+  
 </body>
 </html>
