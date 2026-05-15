@@ -7,20 +7,21 @@
   <title>宏誠融資｜資金規劃與信貸資訊說明</title>
   <meta name="description" content="提供一般資金規劃、信貸資訊整理、申請流程說明與方向參考，協助您在申請前先了解適合的可能方向。" />
 
-  /* 新版分段表單樣式 */
+ /* 新版分段表單樣式 */
 .loan-form {
   width: 100%;
   max-width: 760px;
   margin: 30px auto;
+  color: #1f2937;
 }
 
 .form-card {
-  background: #ffffff;
+  background: #ffffff !important;
   border: 1px solid #e5e7eb;
   border-radius: 14px;
   margin-bottom: 18px;
   overflow: hidden;
-  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.08);
 }
 
 .form-title {
@@ -28,10 +29,11 @@
   align-items: center;
   gap: 10px;
   padding: 16px 20px;
-  font-weight: 700;
-  color: #1f2937;
+  font-weight: 800;
+  color: #1f2937 !important;
   border-bottom: 1px solid #e5e7eb;
-  background: #ffffff;
+  background: #ffffff !important;
+  font-size: 16px;
 }
 
 .form-title span {
@@ -39,7 +41,7 @@
   height: 24px;
   border-radius: 50%;
   background: #0f4c81;
-  color: #ffffff;
+  color: #ffffff !important;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -60,8 +62,8 @@
 .form-group label {
   display: block;
   font-size: 14px;
-  font-weight: 700;
-  color: #475569;
+  font-weight: 800;
+  color: #334155 !important;
   margin-bottom: 8px;
 }
 
@@ -69,12 +71,17 @@
 .form-group select {
   width: 100%;
   height: 52px;
-  border: 1px solid #dbe3ec;
+  border: 1px solid #cbd5e1;
   border-radius: 10px;
   padding: 0 14px;
   font-size: 15px;
-  background: #ffffff;
+  background: #ffffff !important;
+  color: #111827 !important;
   outline: none;
+}
+
+.form-group input::placeholder {
+  color: #9ca3af !important;
 }
 
 .form-group input:focus,
@@ -91,16 +98,17 @@
 
 .radio-row label {
   height: 48px;
-  border: 1px solid #dbe3ec;
+  border: 1px solid #cbd5e1;
   border-radius: 10px;
-  background: #ffffff;
+  background: #ffffff !important;
+  color: #334155 !important;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
   margin: 0;
   cursor: pointer;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .radio-row input {
@@ -108,14 +116,14 @@
 }
 
 .radio-row label:has(input:checked) {
-  background: #0f4c81;
-  color: #ffffff;
+  background: #0f4c81 !important;
+  color: #ffffff !important;
   border-color: #0f4c81;
 }
 
 .privacy-note {
   font-size: 13px;
-  color: #64748b;
+  color: #475569 !important;
   line-height: 1.7;
   margin: 0 0 14px;
 }
@@ -126,7 +134,7 @@
   border: none;
   border-radius: 12px;
   background: #0f4c81;
-  color: #ffffff;
+  color: #ffffff !important;
   font-size: 18px;
   font-weight: 800;
   cursor: pointer;
@@ -785,6 +793,78 @@
   color: #9f6b00;
   font-weight: 950;
 }   
+    .info-box strong {
+  color: #9f6b00;
+  font-weight: 950;
+}
+
+/* 強化表單文字清晰度 */
+.loan-form,
+.loan-form * {
+  color: #111827 !important;
+  opacity: 1 !important;
+}
+
+.form-title {
+  color: #0f172a !important;
+  font-weight: 900 !important;
+  background: #ffffff !important;
+}
+
+.form-title span {
+  color: #ffffff !important;
+}
+
+.form-group label {
+  color: #1e293b !important;
+  font-weight: 900 !important;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  color: #111827 !important;
+  background: #ffffff !important;
+  border: 1.5px solid #94a3b8 !important;
+  font-weight: 600 !important;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: #64748b !important;
+  opacity: 1 !important;
+  font-weight: 500 !important;
+}
+
+.form-card {
+  background: #ffffff !important;
+}
+
+.radio-row label {
+  color: #1e293b !important;
+  background: #ffffff !important;
+  border: 1.5px solid #94a3b8 !important;
+  font-weight: 900 !important;
+}
+
+.radio-row label:has(input:checked) {
+  color: #ffffff !important;
+  background: #0f4c81 !important;
+  border-color: #0f4c81 !important;
+}
+
+.privacy-note {
+  color: #334155 !important;
+  font-weight: 600 !important;
+}
+
+.submit-btn {
+  color: #ffffff !important;
+  background: #0f4c81 !important;
+  font-weight: 900 !important;
+}
+
+</style>
   </style>
 </head>
 
