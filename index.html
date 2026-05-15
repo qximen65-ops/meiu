@@ -7,6 +7,145 @@
   <title>宏誠融資｜資金規劃與信貸資訊說明</title>
   <meta name="description" content="提供一般資金規劃、信貸資訊整理、申請流程說明與方向參考，協助您在申請前先了解適合的可能方向。" />
 
+  /* 新版分段表單樣式 */
+.loan-form {
+  width: 100%;
+  max-width: 760px;
+  margin: 30px auto;
+}
+
+.form-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  margin-bottom: 18px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+}
+
+.form-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 20px;
+  font-weight: 700;
+  color: #1f2937;
+  border-bottom: 1px solid #e5e7eb;
+  background: #ffffff;
+}
+
+.form-title span {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #0f4c81;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  padding: 20px;
+}
+
+.form-card > .form-group {
+  padding: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: #475569;
+  margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  height: 52px;
+  border: 1px solid #dbe3ec;
+  border-radius: 10px;
+  padding: 0 14px;
+  font-size: 15px;
+  background: #ffffff;
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #0f4c81;
+  box-shadow: 0 0 0 3px rgba(15, 76, 129, 0.12);
+}
+
+.radio-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.radio-row label {
+  height: 48px;
+  border: 1px solid #dbe3ec;
+  border-radius: 10px;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin: 0;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.radio-row input {
+  display: none;
+}
+
+.radio-row label:has(input:checked) {
+  background: #0f4c81;
+  color: #ffffff;
+  border-color: #0f4c81;
+}
+
+.privacy-note {
+  font-size: 13px;
+  color: #64748b;
+  line-height: 1.7;
+  margin: 0 0 14px;
+}
+
+.submit-btn {
+  width: 100%;
+  height: 58px;
+  border: none;
+  border-radius: 12px;
+  background: #0f4c81;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(15, 76, 129, 0.25);
+}
+
+.submit-btn:hover {
+  background: #0b3d68;
+}
+
+@media (max-width: 700px) {
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .loan-form {
+    margin: 20px auto;
+  }
+}
   <style>
     * {
       margin: 0;
@@ -779,30 +918,143 @@
         <h2>留下資訊</h2>
       </div>
 
-      <form class="contact-form" id="leadForm">
-       <form class="contact-form" id="leadForm">
+    <form class="loan-form" id="leadForm">
 
-  <input type="text" id="name" name="姓名" placeholder="姓名" required>
+  <div class="form-card">
+    <div class="form-title">
+      <span>1</span>
+      申請人基本資料
+    </div>
 
-  <input type="tel" id="phone" name="手機號碼" placeholder="手機" required>
+    <div class="form-grid">
+      <div class="form-group">
+        <label>姓名 *</label>
+        <input type="text" name="姓名" placeholder="請輸入真實姓名" required>
+      </div>
 
-  <input type="text" id="lineid" name="LINE ID" placeholder="LINE ID（選填）">
+      <div class="form-group">
+        <label>年齡 *</label>
+        <input type="number" name="年齡" placeholder="歲" required>
+      </div>
 
-  <select id="loanType" name="需求類型" required>
-    <option value="個人信貸">個人信貸</option>
-    <option value="小額資金需求">小額資金需求</option>
-    <option value="房屋貸款">房屋貸款</option>
-    <option value="汽機車貸款">汽機車貸款</option>
-    <option value="企業資金周轉">企業資金周轉</option>
-    <option value="其他資金規劃">其他資金規劃</option>
-  </select>
+      <div class="form-group">
+        <label>居住地 *</label>
+        <select name="居住地" required>
+          <option value="">請選擇縣市</option>
+          <option>台北市</option>
+          <option>新北市</option>
+          <option>桃園市</option>
+          <option>台中市</option>
+          <option>台南市</option>
+          <option>高雄市</option>
+          <option>基隆市</option>
+          <option>新竹市</option>
+          <option>新竹縣</option>
+          <option>苗栗縣</option>
+          <option>彰化縣</option>
+          <option>南投縣</option>
+          <option>雲林縣</option>
+          <option>嘉義市</option>
+          <option>嘉義縣</option>
+          <option>屏東縣</option>
+          <option>宜蘭縣</option>
+          <option>花蓮縣</option>
+          <option>台東縣</option>
+          <option>其他地區</option>
+        </select>
+      </div>
 
-  <textarea id="message" name="補充說明" placeholder="想了解的內容"></textarea>
+      <div class="form-group">
+        <label>身分證字號 *</label>
+        <input type="text" name="身分證字號" placeholder="A123456789" required>
+      </div>
+    </div>
+  </div>
 
-  <button type="submit" class="submit-btn">送出資料</button>
+  <div class="form-card">
+    <div class="form-title">
+      <span>2</span>
+      聯絡資訊
+    </div>
+
+    <div class="form-grid">
+      <div class="form-group">
+        <label>LINE ID *</label>
+        <input type="text" name="LINE ID" placeholder="請輸入您的 LINE ID" required>
+      </div>
+
+      <div class="form-group">
+        <label>手機號碼 *</label>
+        <input type="tel" name="手機號碼" placeholder="09xxxxxxxx" required>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-card">
+    <div class="form-title">
+      <span>3</span>
+      貸款需求
+    </div>
+
+    <div class="form-group">
+      <label>預計需求金額 *</label>
+      <select name="預計需求金額" required>
+        <option value="">請選擇額度範圍</option>
+        <option>10萬以下</option>
+        <option>10萬－20萬</option>
+        <option>20萬－30萬</option>
+        <option>30萬－50萬</option>
+        <option>50萬以上</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-card">
+    <div class="form-title">
+      <span>4</span>
+      財務狀況審核項目
+    </div>
+
+    <div class="form-group">
+      <label>銀行是否為警示戶 *</label>
+      <div class="radio-row">
+        <label><input type="radio" name="銀行是否為警示戶" value="是" required> 是</label>
+        <label><input type="radio" name="銀行是否為警示戶" value="否" required> 否</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>是否有個人外幣帳戶 *</label>
+      <div class="radio-row">
+        <label><input type="radio" name="是否有個人外幣帳戶" value="是" required> 是</label>
+        <label><input type="radio" name="是否有個人外幣帳戶" value="否" required> 否</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>是否有信貸／房貸／汽貸／機車 *</label>
+      <div class="radio-row">
+        <label><input type="radio" name="是否有信貸房貸汽貸機車" value="有" required> 有</label>
+        <label><input type="radio" name="是否有信貸房貸汽貸機車" value="無" required> 無</label>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>銀行協商或呆帳 *</label>
+      <div class="radio-row">
+        <label><input type="radio" name="銀行協商或呆帳" value="有" required> 有</label>
+        <label><input type="radio" name="銀行協商或呆帳" value="無" required> 無</label>
+      </div>
+    </div>
+  </div>
+
+  <p class="privacy-note">
+    您填寫的資料僅作為本次諮詢與初步評估使用，未經同意不會作為其他用途。
+  </p>
+
+  <button type="submit" class="submit-btn">送出貸款評估申請</button>
 
 </form>
-
       <div class="form-note">
         送出後將會開啟 LINE，請確認資料內容後再傳送。本表單僅作為一般資訊說明與聯繫用途，實際條件仍依相關單位審核為準。
       </div>
